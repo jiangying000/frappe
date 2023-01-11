@@ -1852,6 +1852,7 @@ def get_list(doctype, *args, **kwargs):
 
 	        # simple dict filter
 	        frappe.get_list("ToDo", fields=["name", "description"], filters = {"owner":"test@example.com"})
+	        frappe.get_list("ToDo", fields="*", filters = {"description": ("like", "test%")})
 
 	        # filter as a list of lists
 	        frappe.get_list("ToDo", fields="*", filters = [["modified", ">", "2014-01-01"]])
@@ -1876,6 +1877,7 @@ def get_all(doctype, *args, **kwargs):
 
 	        # simple dict filter
 	        frappe.get_all("ToDo", fields=["name", "description"], filters = {"owner":"test@example.com"})
+	        frappe.get_all("ToDo", fields="*", filters = {"description": ("like", "test%")})
 
 	        # filter as a list of lists
 	        frappe.get_all("ToDo", fields=["*"], filters = [["modified", ">", "2014-01-01"]])
